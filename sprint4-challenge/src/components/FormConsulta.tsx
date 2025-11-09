@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Calendar, User, Stethoscope, FileText } from 'lucide-react';
-import type { Medico, NovaConsulta, Paciente } from '../types';
-
+import type { Medico, NovaConsulta, Paciente, Teleconsulta } from '../types'; 
 
 interface FormConsultaProps {
-    onSuccess?: () => void;
+    onSuccess?: (consulta?: Teleconsulta) => void; 
 }
 
-export default function FormConsulta({ onSuccess }: FormConsultaProps) {
+export default function FormConsulta({ onSuccess }: FormConsultaProps)  {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -23,6 +22,12 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
         sintomas: '',
     });
 
+
+    const salvarConsultaLocal = (consulta: Teleconsulta) => {
+        const consultasSalvas = JSON.parse(localStorage.getItem('consultas') || '[]');
+        consultasSalvas.push(consulta);
+        localStorage.setItem('consultas', JSON.stringify(consultasSalvas));
+    };
 
     const simularAgendamento = async (novaConsulta: NovaConsulta) => {
         return new Promise((resolve) => {
@@ -53,16 +58,25 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
             crm: formData.medicoCrm,
         };
 
-        const novaConsulta: NovaConsulta = {
+        const novaConsulta: Teleconsulta = {
+            id: crypto.randomUUID(), 
             paciente,
             medico,
             dataHora: formData.dataHora,
+            icon: '',
             sintomas: formData.sintomas,
+            status: 'AGENDADA', 
         };
 
         try {
             await simularAgendamento(novaConsulta);
+
+       
+            salvarConsultaLocal(novaConsulta);
+
             setMessage({ type: 'success', text: 'Consulta agendada com sucesso!' });
+
+            // limpa o form
             setFormData({
                 pacienteNome: '',
                 pacienteEmail: '',
@@ -74,7 +88,9 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
                 dataHora: '',
                 sintomas: '',
             });
-            if (onSuccess) onSuccess();
+
+            if (onSuccess) onSuccess(novaConsulta);
+
         } catch {
             setMessage({ type: 'error', text: 'Erro ao simular agendamento.' });
         }
@@ -95,13 +111,14 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
 
             {message && (
                 <div
-                    className={`mb-6 p-4 rounded-md ${message.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
+                    className={`mb-6 p-4 rounded-md ${message.type === 'success'
+                        ? 'bg-green-50 text-green-800'
+                        : 'bg-red-50 text-red-800'
                         }`}
                 >
                     {message.text}
                 </div>
             )}
-
 
             <div className="mb-6">
                 <div className="flex items-center space-x-2 mb-4">
@@ -184,7 +201,6 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
                 </div>
             </div>
 
-
             <div className="mb-6">
                 <div className="flex items-center space-x-2 mb-4">
                     <Calendar className="h-5 w-5 text-blue-600" />
@@ -199,7 +215,6 @@ export default function FormConsulta({ onSuccess }: FormConsultaProps) {
                     className={inputStyle}
                 />
             </div>
-
 
             <div className="mb-6">
                 <div className="flex items-center space-x-2 mb-4">
