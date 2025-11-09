@@ -56,7 +56,7 @@ export default function Footer() {
                 <span>contato@ZenSoft.com</span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/ZenSoft-Challegne/Sprint4-front-end"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
