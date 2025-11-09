@@ -61,3 +61,10 @@ export interface ContatoFormData {
   assunto: string;
   mensagem: string;
 }
+
+export interface Integrante {
+  nome: string;
+  rm: string;
+  turma: string;
+  github?: string;
+}
