@@ -29,27 +29,27 @@ Acesse o diretório
 
 bash
 Copiar código
-cd Sprint4-front-end
+   cd Sprint4-front-end
 Instale as dependências
 
 bash
 Copiar código
-npm install
+   npm install
 ou
 
 bash
 Copiar código
-yarn
+   yarn
 Inicie o servidor de desenvolvimento
 
 bash
 Copiar código
-npm run dev
+   npm run dev
 ou
 
 bash
 Copiar código
-yarn dev
+   yarn dev
 Abra seu navegador em http://localhost:3000 (ou a porta que seu ambiente configurar).
 
 🎨 Estrutura de pastas (exemplo)
