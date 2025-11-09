@@ -9,6 +9,7 @@ import Integrantes from './pages/Integrantes';
 import Jornada from './pages/Jornada';
 import ConsultaDetalhes from './pages/ConsultaDetalhes';
 
+
 function App() {
   return (
     <Router>
