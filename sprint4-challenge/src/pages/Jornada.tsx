@@ -8,9 +8,7 @@ import type { EtapaJornada, Teleconsulta } from '../types';
 export default function Jornada() {
     const [showForm, setShowForm] = useState(false);
     const [consultas, setConsultas] = useState<Teleconsulta[]>([]);
-    const pacienteLogadoId = '1'; // 🔹 Simulação de login (paciente atual)
-
-    // 🧠 Diagnósticos e feedbacks aleatórios
+    const pacienteLogadoId = '1'; 
     const diagnosticos = [
         'Paciente apresenta melhora significativa após o tratamento.',
         'Quadro estável, seguir com acompanhamento em 15 dias.',
@@ -27,7 +25,7 @@ export default function Jornada() {
         'Consulta ótima, me senti bem orientado.',
     ];
 
-    // 🔹 Carrega consultas salvas no localStorage
+   
     useEffect(() => {
         const salvas = localStorage.getItem('consultas');
         if (salvas) {
@@ -36,7 +34,7 @@ export default function Jornada() {
         }
     }, []);
 
-    // 🔹 Atualiza localStorage sempre que consultas mudarem
+  
     useEffect(() => {
         const todas = JSON.parse(localStorage.getItem('consultas') || '[]');
         const semAsDoPaciente = todas.filter(
@@ -46,7 +44,7 @@ export default function Jornada() {
         localStorage.setItem('consultas', JSON.stringify(atualizadas));
     }, [consultas]);
 
-    // 🔹 Atualiza o status de uma consulta (e gera dados se for concluída)
+ 
     const atualizarStatus = (id: string, novoStatus: Teleconsulta['status']) => {
         setConsultas((prev) =>
             prev.map((c) => {
@@ -68,14 +66,14 @@ export default function Jornada() {
         );
     };
 
-    // 🔹 Excluir consulta
+  
     const handleDeletar = (id: string) => {
         if (confirm('Deseja realmente deletar esta consulta?')) {
             setConsultas((prev) => prev.filter((c) => c.id !== id));
         }
     };
 
-    // 🔹 Etapas da jornada (verdes conforme progresso)
+    
     const etapas: EtapaJornada[] = [
         {
             id: 1,
@@ -124,7 +122,6 @@ export default function Jornada() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Cabeçalho */}
             <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
                 <div className="max-w-7xl mx-auto px-4">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -137,7 +134,7 @@ export default function Jornada() {
                 </div>
             </section>
 
-            {/* Conteúdo */}
+           
             <section className="max-w-7xl mx-auto px-4 py-16">
                 <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
                     <button
@@ -168,7 +165,7 @@ export default function Jornada() {
                     />
                 ) : (
                     <>
-                        {/* Etapas */}
+                   
                         <div className="mb-16">
                             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
                                 Etapas da Jornada
@@ -184,7 +181,7 @@ export default function Jornada() {
                             </div>
                         </div>
 
-                        {/* Consultas */}
+                
                         <div className="bg-white rounded-lg shadow-md p-8">
                             <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 Consultas Recentes
@@ -224,7 +221,7 @@ export default function Jornada() {
                                                         {consulta.status}
                                                     </span>
 
-                                                    {/* Diagnóstico e feedback */}
+                                                
                                                     {consulta.diagnostico && (
                                                         <p className="mt-3 text-gray-700">
                                                             <strong>Diagnóstico:</strong> {consulta.diagnostico}
