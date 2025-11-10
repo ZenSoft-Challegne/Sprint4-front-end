@@ -6,7 +6,7 @@ export default function Integrantes() {
     {
       nome: 'Vinicius Romaguera Cardozo',
       rm: 'RM562308',
-      turma: '1TDSPy',
+      turma: '1TDSPY',
       github: 'https://github.com/Vircsss',
     },
     {
