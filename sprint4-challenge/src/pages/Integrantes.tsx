@@ -108,7 +108,7 @@ export default function Integrantes() {
               <span>Repositório GitHub</span>
             </a>
             <a
-              href="https://vercel.com"
+              href="challenge-x9al-a528bmqbv-vircsss-projects.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
