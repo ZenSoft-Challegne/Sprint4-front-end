@@ -72,7 +72,10 @@ src/
 ├── App.tsx             # Componente principal
 └── main.tsx            # Entry point
 ```
+## 🔗 Links do Projeto
 
+- **Repositório GitHub**: [https://github.com/ZenSoft-Challegne/Sprint4-front-end](https://github.com/seu-usuario/teleconsulta)
+- **Deploy Vercel**: [challenge-x9al-a528bmqbv-vircsss-projects.vercel.app](https://teleconsulta.vercel.app)
 
 🔁 Fluxo da aplicação
 Usuário acessa a página e visualiza as etapas da jornada (inicialmente “Cadastro e Login” já concluída, outras pendentes).
