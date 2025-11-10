@@ -51,7 +51,7 @@ npm run dev
 http://localhost:5173
 ```
 
-🎨 Estrutura de pastas (exemplo)
+```bash
 src/
 ├── components/          # Componentes reutilizáveis
 │   ├── Navbar.tsx
@@ -69,8 +69,10 @@ src/
 │   └── ConsultaDetalhes.tsx
 ├── types/              # Definições de tipos
 │   └── index.ts
-├── App.tsx            # Componente principal
-└── main.tsx           # Entry point
+├── App.tsx             # Componente principal
+└── main.tsx            # Entry point
+```
+
 
 🔁 Fluxo da aplicação
 Usuário acessa a página e visualiza as etapas da jornada (inicialmente “Cadastro e Login” já concluída, outras pendentes).
