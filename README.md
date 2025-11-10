@@ -2,6 +2,14 @@
 
 Projeto front-end desenvolvido como parte do Challenge “Sprint 4” pela organização **ZenSoft-Challegne**.
 
+## 👥 Equipe
+
+| Nome | RM | Turma | GitHub |
+|------|-------|-------|--------|
+| Vinicius Romaguera Cardozo | RM562308 | 1TDSPY | [@Vircsss](https://github.com/Vircsss) |
+| Nicolas de Oliveira Jacob | RM564205 | 1TDSPY | [@Nicolas-Jacob](https://github.com/Nicolas-Jacob) |
+| Gustavo Barrios de Araújo | RM563358 | 1TDSPY | [@Gustavo-B-Araujo](https://github.com/Gustavo-B-Araujo) |
+
 ## 📋 Visão Geral  
 Este projeto implementa a **jornada do paciente**, com sistema de agendamento de teleconsulta, acompanhamento das etapas do atendimento (como “Agendado”, “Link Recebido”, “Em andamento”, “Concluída”), geração automática de diagnóstico/feedback e histórico de consultas persistido localmente.
 
@@ -22,45 +30,48 @@ Este projeto implementa a **jornada do paciente**, com sistema de agendamento de
 - `localStorage` para persistência simples  
 
 ## 🎯 Instalação & uso  
-1. Clone o repositório  
-   ```bash
-   git clone https://github.com/ZenSoft-Challegne/Sprint4-front-end.git
-Acesse o diretório
+1. Clone o repositório:
+```bash
+git clone https://github.com/ZenSoft-Challegne/Sprint4-front-end
+cd sprint4-challenge
+```
 
-bash
-Copiar código
-   cd Sprint4-front-end
-Instale as dependências
+2. Instale as dependências:
+```bash
+npm install
+```
 
-bash
-Copiar código
-   npm install
-ou
+3. Execute o projeto:
+```bash
+npm run dev
+```
 
-bash
-Copiar código
-   yarn
-Inicie o servidor de desenvolvimento
-
-bash
-Copiar código
-   npm run dev
-ou
-
-bash
-Copiar código
-   yarn dev
-Abra seu navegador em http://localhost:3000 (ou a porta que seu ambiente configurar).
+4. Acesse no navegador:
+```
+http://localhost:5173
+```
 
 🎨 Estrutura de pastas (exemplo)
-bash
-Copiar código
-/src  
-  /components    → Componentes reutilizáveis (CardEtapa, FormConsulta, etc.)  
-  /pages         → Páginas principais (Jornada, Consultas, etc.)  
-  /types         → Definições de tipos (Paciente, Medico, Teleconsulta, EtapaJornada, etc.)  
-  /styles        → Arquivos de estilo global ou tema (se aplicável)  
-  /utils         → Funções utilitárias (por exemplo geração de strings aleatórias)  
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── JornadaPaciente.tsx
+│   ├── CardEtapa.tsx
+│   └── FormConsulta.tsx
+├── pages/              # Páginas da aplicação
+│   ├── Home.tsx
+│   ├── Sobre.tsx
+│   ├── FAQ.tsx
+│   ├── Contato.tsx
+│   ├── Integrantes.tsx
+│   ├── Jornada.tsx
+│   └── ConsultaDetalhes.tsx
+├── types/              # Definições de tipos
+│   └── index.ts
+├── App.tsx            # Componente principal
+└── main.tsx           # Entry point
+
 🔁 Fluxo da aplicação
 Usuário acessa a página e visualiza as etapas da jornada (inicialmente “Cadastro e Login” já concluída, outras pendentes).
 
